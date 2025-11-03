@@ -7,15 +7,19 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ArrowUpRight, Menu } from "lucide-react";
 import Image from "next/image";
 import primaryContact from "@/lib/contactData";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { title: "Home", href: "/" },
   { title: "Services", href: "/services" },
   { title: "About", href: "/about" },
+  { title: "Portfolio", href: "/portfolio" },
   { title: "Contact", href: "/contact" },
 ];
 
 export function Header() {
+  const path = usePathname();
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b">
       <div className="lg:container  mx-auto flex items-center justify-between h-16 px-4">
@@ -50,7 +54,10 @@ export function Header() {
             >
               <Link
                 href={item.href}
-                className="text-base font-medium text-foreground hover:text-cyan-500 transition-colors"
+                className={cn(
+                  "text-base font-medium text-foreground hover:text-cyan-500 transition-colors",
+                  path === item.href && "text-cyan-500"
+                )}
               >
                 {item.title}
               </Link>
