@@ -192,6 +192,10 @@ export default function page() {
           </div>
         </div>
       </section>
+      <Script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+      ></Script>
     </>
   );
 }
