@@ -1,4 +1,6 @@
+import primaryContact from "@/lib/contactData";
 import { Group, Lightbulb, Shield } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export default function page() {
@@ -48,7 +50,7 @@ export default function page() {
               </div>
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center">
-                  <p className="text-5xl font-extrabold text-primary">150+</p>
+                  <p className="text-5xl font-extrabold text-primary">10+</p>
                   <p className="mt-2 text-sm font-medium uppercase tracking-wider text-text-light/70 dark:text-text-dark/70">
                     Projects Completed
                   </p>
@@ -60,13 +62,13 @@ export default function page() {
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-5xl font-extrabold text-primary">8+</p>
+                  <p className="text-5xl font-extrabold text-primary">1+</p>
                   <p className="mt-2 text-sm font-medium uppercase tracking-wider text-text-light/70 dark:text-text-dark/70">
                     Years of Experience
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-5xl font-extrabold text-primary">25</p>
+                  <p className="text-5xl font-extrabold text-primary">5</p>
                   <p className="mt-2 text-sm font-medium uppercase tracking-wider text-text-light/70 dark:text-text-dark/70">
                     Team Experts
                   </p>
@@ -139,7 +141,7 @@ export default function page() {
             </div>
           </section>
 
-          <section className="bg-white dark:bg-background-dark/50">
+          <section className="bg-background dark:bg-background-dark/50">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
               <div className="text-center">
                 <h2 className="text-3xl font-bold tracking-tight">
@@ -152,10 +154,14 @@ export default function page() {
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
                   <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors">
-                    <span className="truncate">Contact Us</span>
+                    <Link href={`tel:${primaryContact.phone}`}>
+                      <span className="truncate">Contact Us</span>
+                    </Link>
                   </button>
                   <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-accent  text-base font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors">
-                    <span className="truncate">View Our Services</span>
+                    <Link href={"/services"}>
+                      <span className="truncate">View Our Services</span>
+                    </Link>
                   </button>
                 </div>
               </div>

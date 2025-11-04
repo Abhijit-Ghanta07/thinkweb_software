@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Calendar } from "lucide-react";
+import primaryContact from "@/lib/contactData";
 
 export function Hero() {
   return (
@@ -40,7 +42,15 @@ export function Hero() {
             asChild
             className="font-medium bg-primary shadow-lg hover:opacity-90"
           >
-            <Link href="/consultation">Book Consultation</Link>
+            <Link
+              href="https://calendly.com/thinkwebsoftwaresolutions/30min"
+              className="flex items-center gap-1"
+            >
+              <span>
+                <Calendar />
+              </span>
+              <span> Book Consultation</span>
+            </Link>
           </Button>
 
           <Button
@@ -48,7 +58,9 @@ export function Hero() {
             variant="outline"
             className="border-primary text-foreground hover:bg-cyan-50"
           >
-            <Link href="/get-quote">Get Quote</Link>
+            <Link href={`https://wa.me/${primaryContact.phone}`}>
+              Get Free Quote
+            </Link>
           </Button>
         </motion.div>
       </div>

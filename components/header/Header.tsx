@@ -9,17 +9,19 @@ import Image from "next/image";
 import primaryContact from "@/lib/contactData";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const navItems = [
   { title: "Home", href: "/" },
   { title: "Services", href: "/services" },
   { title: "About", href: "/about" },
-  { title: "Portfolio", href: "/portfolio" },
+  // { title: "Portfolio", href: "/portfolio" },
   { title: "Contact", href: "/contact" },
 ];
 
 export function Header() {
   const path = usePathname();
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b">
       <div className="lg:container  mx-auto flex items-center justify-between h-16 px-4">
@@ -81,7 +83,7 @@ export function Header() {
               href={`https://wa.me/${primaryContact.phone}`}
               className="flex items-center"
             >
-              <span>Get Quote</span>
+              <span>Get Free Quote</span>
               <span className="animate-bounce">
                 <ArrowUpRight />
               </span>
@@ -91,7 +93,7 @@ export function Header() {
 
         {/* MOBILE MENU */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger>
               <Menu className="h-6 w-6 text-foreground" />
             </SheetTrigger>
@@ -101,7 +103,11 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-lg font-medium hover:text-cyan-500 transition"
+                    className={cn(
+                      "text-lg font-medium hover:text-cyan-500 transition",
+                      path === item.href && "text-cyan-500"
+                    )}
+                    onClick={() => setOpen(false)}
                   >
                     {item.title}
                   </Link>
@@ -110,12 +116,13 @@ export function Header() {
                 <Button
                   asChild
                   className="mt-4 w-full font-medium bg-gradient-to-r from-cyan-400 to-purple-500 text-white hover:opacity-90 shadow-lg"
+                  onClick={() => setOpen(false)}
                 >
                   <Link
                     href={`https://wa.me/${primaryContact.phone}`}
                     className="flex items-center"
                   >
-                    <span>Get Quote</span>
+                    <span>Get Free Quote</span>
                     <span className="animate-bounce">
                       <ArrowUpRight />
                     </span>

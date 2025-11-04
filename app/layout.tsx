@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-inter antialiased ${inter.variable} ${poppins.variable}`}
+        className={`font-inter antialiased ${inter.variable} ${poppins.variable} overflow-x-hidden`}
       >
         <Header />
         {children}

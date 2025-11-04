@@ -1,25 +1,33 @@
 "use client";
 import primaryContact from "@/lib/contactData";
 import { Mail, Phone } from "lucide-react";
+import Script from "next/script";
 import React from "react";
 
 export default function page() {
   return (
-    <section className="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
-      <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-        <div className="layout-container flex h-full grow flex-col">
-          <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-            <div className="flex flex-col gap-4 text-center mb-12 sm:mb-16">
-              <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] text-text-light dark:text-text-dark">
-                Let&apos;s Build Something Great Together
-              </h1>
-              <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-normal leading-normal">
-                Fill out the form below, and we&apos;ll get back to you within
-                24 hours.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-              <div className="lg:col-span-3 bg-white dark:bg-background-dark p-8 sm:p-10 rounded-xl border border-border-light dark:border-border-dark shadow-sm">
+    <>
+      <Script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+        async
+      ></Script>
+
+      <section className="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+        <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+          <div className="layout-container flex h-full grow flex-col">
+            <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+              <div className="flex flex-col gap-4 text-center mb-12 sm:mb-16">
+                <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] text-text-light dark:text-text-dark">
+                  Let&apos;s Build Something Great Together
+                </h1>
+                <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-normal leading-normal">
+                  Fill out the form below, and we&apos;ll get back to you within
+                  24 hours.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+                {/* <div className="lg:col-span-3 bg-white dark:bg-background-dark p-8 sm:p-10 rounded-xl border border-border-light dark:border-border-dark shadow-sm">
                 <h2 className="text-2xl font-bold leading-tight tracking-[-0.015em] mb-8">
                   Send us a Message
                 </h2>
@@ -88,34 +96,42 @@ export default function page() {
                     </button>
                   </div>
                 </form>
-              </div>
-              <div className="lg:col-span-2 space-y-10">
-                <div className="space-y-6">
-                  <h3 className="text-xl font-bold">Our Contact Information</h3>
-                  <div className="space-y-4">
-                    <a
-                      className="flex items-center gap-4 group"
-                      href="mailto:contact@thinkweb.io"
-                    >
-                      <div className="flex items-center justify-center size-10 bg-primary/10 dark:bg-secondary/10 rounded-lg text-primary dark:text-secondary group-hover:bg-primary/20 dark:group-hover:bg-secondary/20 transition-colors">
-                        <Mail />
-                      </div>
-                      <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-secondary">
-                        {primaryContact.email}
-                      </span>
-                    </a>
-                    <a
-                      className="flex items-center gap-4 group"
-                      href={`tel:${primaryContact.phone}`}
-                    >
-                      <div className="flex items-center justify-center size-10 bg-primary/10 dark:bg-secondary/10 rounded-lg text-primary dark:text-secondary group-hover:bg-primary/20 dark:group-hover:bg-secondary/20 transition-colors">
-                        <Phone />
-                      </div>
-                      <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-secondary">
-                        {primaryContact.phone}
-                      </span>
-                    </a>
-                    {/* <div className="flex items-start gap-4">
+              </div> */}
+                <div className="wrap w-full lg:col-span-3">
+                  <div
+                    className="calendly-inline-widget w-full h-[800px]"
+                    data-url="https://calendly.com/thinkwebsoftwaresolutions/contact-us"
+                  ></div>
+                </div>
+                <div className="lg:col-span-2 space-y-10">
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-bold">
+                      Our Contact Information
+                    </h3>
+                    <div className="space-y-4">
+                      <a
+                        className="flex items-center gap-4 group"
+                        href="mailto:contact@thinkweb.io"
+                      >
+                        <div className="flex items-center justify-center size-10 bg-primary/10 dark:bg-secondary/10 rounded-lg text-primary dark:text-secondary group-hover:bg-primary/20 dark:group-hover:bg-secondary/20 transition-colors">
+                          <Mail />
+                        </div>
+                        <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-secondary">
+                          {primaryContact.email}
+                        </span>
+                      </a>
+                      <a
+                        className="flex items-center gap-4 group"
+                        href={`tel:${primaryContact.phone}`}
+                      >
+                        <div className="flex items-center justify-center size-10 bg-primary/10 dark:bg-secondary/10 rounded-lg text-primary dark:text-secondary group-hover:bg-primary/20 dark:group-hover:bg-secondary/20 transition-colors">
+                          <Phone />
+                        </div>
+                        <span className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-secondary">
+                          {primaryContact.phone}
+                        </span>
+                      </a>
+                      {/* <div className="flex items-start gap-4">
                       <div className="flex items-center justify-center size-10 bg-primary/10 dark:bg-secondary/10 rounded-lg text-primary dark:text-secondary flex-shrink-0 mt-1">
                         <span className="material-symbols-outlined">
                           location_on
@@ -125,21 +141,22 @@ export default function page() {
                         123 Innovation Drive, Tech City, ST 54321
                       </span>
                     </div> */}
+                    </div>
+                  </div>
+                  <div className="w-full h-64 lg:h-80 rounded-xl overflow-hidden border border-border-light dark:border-border-dark">
+                    <img
+                      className="w-full h-full object-cover"
+                      data-alt="A stylized map showing a pin on a location."
+                      data-location="Tech City"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-j0AFOveui8K6iF4W7ljCK5wDmsNZZ4g_GFBU7DnvQn1xqY7nHKOcxN45yK6dq-RKBRFaf10xRu--i62WQtjt7uwDf_Vgt7J4JAdAwAU_XQIohmGMZkX2qyBj_pyHas4V5aCYPkkiKsMYj5khzBEIlQ6htPK3rdWvo3ZPL_xrR02Jq-8WxxVz-aj4Glx6cKJgAhodYCK-MGVn9lh_xcBFRAC-GBCwAegtYs-IV225PKibz-SWLhEPnnUlJT2cprZyLuUyqhXj6aQ"
+                    />
                   </div>
                 </div>
-                <div className="w-full h-64 lg:h-80 rounded-xl overflow-hidden border border-border-light dark:border-border-dark">
-                  <img
-                    className="w-full h-full object-cover"
-                    data-alt="A stylized map showing a pin on a location."
-                    data-location="Tech City"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-j0AFOveui8K6iF4W7ljCK5wDmsNZZ4g_GFBU7DnvQn1xqY7nHKOcxN45yK6dq-RKBRFaf10xRu--i62WQtjt7uwDf_Vgt7J4JAdAwAU_XQIohmGMZkX2qyBj_pyHas4V5aCYPkkiKsMYj5khzBEIlQ6htPK3rdWvo3ZPL_xrR02Jq-8WxxVz-aj4Glx6cKJgAhodYCK-MGVn9lh_xcBFRAC-GBCwAegtYs-IV225PKibz-SWLhEPnnUlJT2cprZyLuUyqhXj6aQ"
-                  />
-                </div>
               </div>
-            </div>
-          </main>
+            </main>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

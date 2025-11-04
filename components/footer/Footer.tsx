@@ -1,6 +1,14 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-
+const quickLinks = [
+  { title: "Home", href: "/" },
+  { title: "Services", href: "/services" },
+  { title: "About", href: "/about" },
+  // { title: "Portfolio", href: "/portfolio" },
+  { title: "Contact", href: "/contact" },
+];
 export function Footer() {
   return (
     <footer className="bg-gray-900 dark:bg-black text-gray-300">
@@ -115,38 +123,16 @@ export function Footer() {
               Company
             </h3>
             <ul className="mt-4 space-y-2">
-              <li>
-                <a
-                  className="text-base text-gray-400 hover:text-white"
-                  href="#"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-base text-gray-400 hover:text-white"
-                  href="#"
-                >
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-base text-gray-400 hover:text-white"
-                  href="#"
-                >
-                  Our Process
-                </a>
-              </li>
-              <li>
-                <a
-                  className="text-base text-gray-400 hover:text-white"
-                  href="#"
-                >
-                  Blog
-                </a>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    className="text-base text-gray-400 hover:text-white"
+                    href={link.href}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -182,7 +168,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-          <p>© 2024 Thinkweb Software Solutions. All rights reserved.</p>
+          <p>© 2025 Thinkweb Software Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>

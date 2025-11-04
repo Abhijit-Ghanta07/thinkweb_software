@@ -26,7 +26,7 @@ const techs = [
   },
   {
     name: "Laravel",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original-wordmark.svg",
   },
   {
     name: "WordPress",
@@ -42,7 +42,7 @@ const techs = [
   },
   {
     name: "TailwindCSS",
-    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
   {
     name: "JavaScript",

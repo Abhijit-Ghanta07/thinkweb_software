@@ -74,7 +74,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              <Card className=" bg-background border-gray-200 hover:shadow-xl transition rounded-lg h-52 pt-8 px-8">
+              <Card className=" bg-background border-gray-200 hover:shadow-xl transition rounded-lg h-auto min-h-52 pt-8 px-8">
                 <CardHeader>
                   <div className="flex flex-col items-center">
                     <Button

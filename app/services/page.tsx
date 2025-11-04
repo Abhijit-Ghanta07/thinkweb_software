@@ -1,6 +1,9 @@
 import React from "react";
 import { TechStack } from "../(home)/_components/Tech";
 import { Services } from "../(home)/_components/Services";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import primaryContact from "@/lib/contactData";
 
 export default function page() {
   return (
@@ -19,9 +22,12 @@ export default function page() {
                       We create custom web, mobile, and marketing solutions to
                       help your business thrive in the digital landscape.
                     </p>
-                    <button className="flex min-w-[84px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
-                      <span className="truncate">Get a Free Quote</span>
-                    </button>
+                    {/* <Link href={`https://wa.me/${primaryContact.phone}`}>
+                      <button className="flex min-w-[84px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                        <ArrowUpRight />
+                        <span>Get a Free Quote</span>
+                      </button>
+                    </Link> */}
                   </div>
                   <div
                     className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
@@ -121,7 +127,7 @@ export default function page() {
 
             <section className="w-full">
               <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <div className="bg-primary dark:bg-primary/90 rounded-xl p-8 md:p-12 text-center">
+                <div className="bg-linear-to-r from-[#00d5ffcb] via-10% to-[#7d3cff] rounded-xl p-8 md:p-12 text-center">
                   <h2 className="text-3xl font-bold text-white">
                     Have an Idea? Let&apos;s Build It Together.
                   </h2>
@@ -130,9 +136,14 @@ export default function page() {
                     free consultation and quote. We&apos;re excited to learn
                     about your vision.
                   </p>
-                  <button className="mt-8 flex mx-auto min-w-[84px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-white dark:bg-secondary text-primary dark:text-gray-900 text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
-                    <span className="truncate">Get a Free Quote</span>
-                  </button>
+                  <div className="flex justify-center py-5">
+                    <Link href={`https://wa.me/${primaryContact.phone}`}>
+                      <button className="flex min-w-[84px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-black/80 text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                        <ArrowUpRight />
+                        <span>Get a Free Quote</span>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </section>
