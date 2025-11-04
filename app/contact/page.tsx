@@ -11,11 +11,6 @@ export const metadata = generateSEO({
 export default function page() {
   return (
     <>
-      <Script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      ></Script>
       <Script id="localbusiness-jsonld" type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

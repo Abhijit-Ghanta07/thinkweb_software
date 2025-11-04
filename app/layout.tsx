@@ -111,6 +111,11 @@ export default function RootLayout({
             },
           })}
         </Script>
+        <script
+          type="text/javascript"
+          src="https://assets.calendly.com/assets/external/widget.js"
+          async
+        ></script>
       </body>
     </html>
   );
