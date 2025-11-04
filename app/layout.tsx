@@ -3,6 +3,9 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
+import { defaultSEO } from "@/lib/seo";
+import Script from "next/script";
+import { siteInfo } from "@/lib/data";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,11 +20,52 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Thinkweb Software Solutions",
-  description: "Modern software solutions and digital products",
+export const metadata = {
+  title: defaultSEO.title,
+  description: defaultSEO.description,
+  keywords: defaultSEO.keywords,
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: defaultSEO.title,
+    description: defaultSEO.description,
+    url: defaultSEO.url,
+    images: [
+      {
+        url: defaultSEO.ogImage,
+        width: 1200,
+        height: 630,
+      },
+    ],
+    siteName: defaultSEO.title,
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultSEO.title,
+    description: defaultSEO.description,
+    images: {
+      url: defaultSEO.ogImage,
+      width: 1200,
+      height: 630,
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -35,6 +79,38 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Script id="organization-jsonld" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: siteInfo.name,
+            url: siteInfo.url,
+            logo: siteInfo.logo,
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: siteInfo.phone,
+                contactType: "customer service",
+              },
+            ],
+            sameAs: siteInfo.socialLinks,
+          })}
+        </Script>
+
+        {/* ✅ Website JSON-LD */}
+        <Script id="website-jsonld" type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: siteInfo.name,
+            url: siteInfo.url,
+            potentialAction: {
+              "@type": "SearchAction",
+              target: `${siteInfo.url}/search?q={search_term_string}`,
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </Script>
       </body>
     </html>
   );

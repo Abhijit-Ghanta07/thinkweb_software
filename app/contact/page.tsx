@@ -1,9 +1,14 @@
 "use client";
 import primaryContact from "@/lib/contactData";
+import { siteInfo } from "@/lib/data";
+import { generateSEO } from "@/lib/seo";
 import { Mail, Phone } from "lucide-react";
 import Script from "next/script";
 import React from "react";
-
+export const metadata = generateSEO({
+  title: `Contact Us | ${siteInfo.name}`,
+  description: "Get in touch for project inquiries & business queries.",
+});
 export default function page() {
   return (
     <>
@@ -12,6 +17,42 @@ export default function page() {
         src="https://assets.calendly.com/assets/external/widget.js"
         async
       ></Script>
+      <Script id="localbusiness-jsonld" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: siteInfo.name,
+          url: siteInfo.url,
+          telephone: siteInfo.phone,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Medinipur",
+            addressRegion: "WB",
+            addressCountry: "IN",
+          },
+        })}
+      </Script>
+
+      <Script id="breadcrumbs-contact" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: siteInfo.url,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Contact",
+              item: `${siteInfo.url}/contact`,
+            },
+          ],
+        })}
+      </Script>
 
       <section className="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
         <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
