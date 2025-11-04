@@ -1,4 +1,3 @@
-"use client";
 import primaryContact from "@/lib/contactData";
 import { siteInfo } from "@/lib/data";
 import { generateSEO } from "@/lib/seo";
