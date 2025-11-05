@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer/Footer";
 import { defaultSEO } from "@/lib/seo";
 import Script from "next/script";
 import { siteInfo } from "@/lib/data";
+import { WhatsAppFloatingButton } from "@/components/flotingBtn/WpBtn";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -79,6 +80,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <WhatsAppFloatingButton />
         <Script id="organization-jsonld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -97,7 +99,6 @@ export default function RootLayout({
           })}
         </Script>
 
-        {/* ✅ Website JSON-LD */}
         <Script id="website-jsonld" type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

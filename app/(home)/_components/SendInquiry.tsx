@@ -7,15 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone } from "lucide-react";
 import primaryContact from "@/lib/contactData";
 import Script from "next/script";
+import { MeetUp } from "@/components/contact/MeetUp";
 
 export function SendInquiry() {
   return (
     <>
-      <Script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-        async
-      ></Script>
       <section className="py-24 bg-background px-5 dark:bg-gray-900">
         <div className="lg:container mx-auto grid lg:grid-cols-2 gap-14 items-start">
           {/* Left Section */}
@@ -48,10 +44,7 @@ export function SendInquiry() {
 
           {/* Right Form */}
           <div className="wrap">
-            <div
-              className="calendly-inline-widget w-full h-[800px]"
-              data-url="https://calendly.com/thinkwebsoftwaresolutions/contact-us"
-            ></div>
+            <MeetUp />
           </div>
         </div>
       </section>

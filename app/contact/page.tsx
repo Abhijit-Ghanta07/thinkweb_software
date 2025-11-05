@@ -1,3 +1,4 @@
+import { MeetUp } from "@/components/contact/MeetUp";
 import primaryContact from "@/lib/contactData";
 import { siteInfo } from "@/lib/data";
 import { generateSEO } from "@/lib/seo";
@@ -133,10 +134,7 @@ export default function page() {
                 </form>
               </div> */}
                 <div className="wrap w-full lg:col-span-3">
-                  <div
-                    className="calendly-inline-widget w-full h-[800px]"
-                    data-url="https://calendly.com/thinkwebsoftwaresolutions/contact-us"
-                  ></div>
+                  <MeetUp />
                 </div>
                 <div className="lg:col-span-2 space-y-10">
                   <div className="space-y-6">
@@ -192,10 +190,6 @@ export default function page() {
           </div>
         </div>
       </section>
-      <Script
-        type="text/javascript"
-        src="https://assets.calendly.com/assets/external/widget.js"
-      ></Script>
     </>
   );
 }
