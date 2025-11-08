@@ -17,7 +17,10 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="font-heading text-4xl md:text-6xl font-bold leading-tight tracking-tighter"
         >
-          Build, Launch, and Scale Your Digital Vision
+          Build, Launch, and Scale Your{" "}
+          <span className="bg-linear-to-r from-chart-2 to bg-chart-3 bg-clip-text text-transparent">
+            Digital Vision
+          </span>
         </motion.h1>
 
         {/* Subtitle */}

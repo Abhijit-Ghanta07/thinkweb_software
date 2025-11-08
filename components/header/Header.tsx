@@ -34,14 +34,16 @@ export function Header() {
           <Link href="/" className="">
             <div className="flex items-center">
               <Image
-                src={"/logos/logo_icon.png"}
+                src={"/logos/logo.png"}
                 alt="logo"
-                width={50}
-                height={50}
-                className="aspect-square object-contain object-top"
+                width={100}
+                height={60}
+                className=""
               />
 
-              <p className="font-medium text-lg">Thinkweb Software</p>
+              {/* <p className="text-lg bg-linear-to-l from-chart-2 to-chart-3 bg-clip-text text-transparent font-bold ">
+                Thinkweb Software
+              </p> */}
             </div>
           </Link>
         </motion.div>
